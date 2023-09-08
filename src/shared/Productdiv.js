@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 // functions
 import { shorten } from '../functions/shorten';
 
@@ -10,7 +12,7 @@ const Productdiv = ({productData}) => {
             <h2>{shorten(productData.title)}</h2>
             <p>{productData.price}</p>
             <div>
-                <a  href="#">details</a>
+                <Link  to={`/products/${productData.id}`}>details</Link>
                 <div>
                     <button>Add to cart</button>
                 </div>
