@@ -1,10 +1,15 @@
 import React from 'react';
 
+// context
+import ContexProviderFile from './context/ContexProviderFile';
+
+
+
 const App = () => {
   return (
-    <div>
+    <ContexProviderFile>
       
-    </div>
+    </ContexProviderFile>
   );
 };
 
