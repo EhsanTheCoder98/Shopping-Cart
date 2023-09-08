@@ -1,5 +1,5 @@
 import React , {useContext} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams , Link } from 'react-router-dom';
 
 // context
 import { Context } from '../context/ContexProviderFile';
@@ -12,11 +12,15 @@ const Productdetail = () => {
 
     return (
         <div>
-            <img src={image} alt='product'/>
+            <img src={image} alt='product' style={{width:"200px"}}/>
             <h3>{title}</h3>
             <p>{description}</p>
             <p>{category}</p>
             <span>{price}</span>
+            <br/>
+            <br/>
+            <br/>
+            <Link   to="/products">Back to shop</Link>
         </div>
     );
 };
