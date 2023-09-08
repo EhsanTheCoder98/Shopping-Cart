@@ -2,8 +2,8 @@ import React, { useState, useEffect , createContext } from "react";
 
 // API
 import { getData } from "../services/api";
-
-const Context = createContext();
+// context created
+export const Context = createContext();
 
 const ContexProviderFile = (props) => {
   const [product, setProduct] = useState([]);
