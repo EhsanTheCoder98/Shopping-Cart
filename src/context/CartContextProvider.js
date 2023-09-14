@@ -1,45 +1,56 @@
-import React , {useReducer} from 'react';
+import React, { useReducer } from "react";
 
 const initialState = {
-    selectedItems : [],
-    itemsCounter : 0,
-    total : 0,
-    checkout : false
-}
+  selectedItems: [],
+  itemsCounter: 0,
+  total: 0,
+  checkout: false,
+};
 
-const cartReducer = (state,action) => {
-    switch(action.type) {
-        case "ADD-ITEM" :
-            if(!state.selectedItems.find(item => item.id === action.payload.id)) {
-                state.selectedItems.push({
-                    ...action.payload,
-                    quantity:1,
-                })
-            }
-            return{
-                ...state,
-                selectedItems:[...state.selectedItems],
-            }
-        case "REMOVE_ITEM":
-            const newSelected = state.selectedItems.filter(item => item.id !== action.payload.id);
-            return{
-                ...state,
-                selectedItems : [...newSelected],
-            }
-
-    }
-}
-
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case "ADD-ITEM":
+      if (!state.selectedItems.find((item) => item.id === action.payload.id)) {
+        state.selectedItems.push({
+          ...action.payload,
+          quantity: 1,
+        });
+      }
+      return {
+        ...state,
+        selectedItems: [...state.selectedItems],
+      };
+    case "REMOVE_ITEM":
+      const newSelected = state.selectedItems.filter(
+        (item) => item.id !== action.payload.id
+      );
+      return {
+        ...state,
+        selectedItems: [...newSelected],
+      };
+    case "INCREASE":
+      const indexI = state.selectedItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      state.selectedItems[indexI].quantity++;
+      return {
+        ...state,
+      };
+    case "DECREASE":
+      const indexD = state.selectedItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      state.selectedItems[indexD].quantity--;
+      return {
+        ...state,
+      };
+  }
+};
 
 const CartContextProvider = () => {
+  const [state, dispatch] = useReducer(cartReducer, initialState);
 
-    const [state , dispatch] = useReducer(cartReducer,initialState);
-
-    return (
-        <div>
-            
-        </div>
-    );
+  return <div></div>;
 };
 
 export default CartContextProvider;
