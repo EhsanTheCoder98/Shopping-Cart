@@ -63,10 +63,16 @@ const cartReducer = (state, action) => {
   }
 };
 
-const CartContextProvider = () => {
+export const Cartcontex = React.createContext();
+
+const CartContextProvider = (props) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
-  return <div></div>;
+  return (
+    <Cartcontex value={{state , dispatch}}>
+        {props.children}
+    </Cartcontex>
+  );
 };
 
 export default CartContextProvider;
