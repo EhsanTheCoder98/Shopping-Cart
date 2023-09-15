@@ -8,6 +8,7 @@ const initialState = {
 };
 
 const cartReducer = (state, action) => {
+    console.log(state);
   switch (action.type) {
     case "ADD-ITEM":
       if (!state.selectedItems.find((item) => item.id === action.payload.id)) {
@@ -69,9 +70,9 @@ const CartContextProvider = (props) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   return (
-    <Cartcontex value={{state , dispatch}}>
+    <Cartcontex.Provider value={{state , dispatch}}>
         {props.children}
-    </Cartcontex>
+    </Cartcontex.Provider>
   );
 };
 
