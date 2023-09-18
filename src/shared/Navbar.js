@@ -9,7 +9,10 @@ const Navbar = () => {
         <Link to="/products">Product</Link>
         <div>
       <Link to="/cart">Cart</Link>
-      <span>{state.itemsCounter}</span>
+      <br />
+      <span>You Have {state.itemsCounter} Items in Shop</span>
+      <br />
+      <span>Total price is : {state.total}</span>
         </div>
     </div>
   );
