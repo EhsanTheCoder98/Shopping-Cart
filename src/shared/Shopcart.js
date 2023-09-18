@@ -7,7 +7,7 @@ import { Cartcontex } from "../context/CartContextProvider";
 import Cart from "./Cart";
 
 const Shopcart = () => {
-    const {state,dispatch} = useContext(Cartcontex);
+    const {state} = useContext(Cartcontex);
   return (
     <div>
       {
