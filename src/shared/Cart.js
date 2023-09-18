@@ -7,7 +7,7 @@ const Cart = (props) => {
     const {dispatch} = useContext(Cartcontex);
     return (
         <div style={{border:"2px solid black"}}>
-            <img src={image} style={{width:"100px"}}/>
+            <img src={image} style={{width:"100px"}} alt='product'/>
             <h2>You ordered {quantity} of {shorten(title)}</h2>
             <button onClick={()=>dispatch({type:"INCREASE",payload:props.data})}>+</button>
             {
